@@ -1,0 +1,5 @@
+package com.tcj.dao;
+
+public class MyRepository {
+
+}

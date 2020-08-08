@@ -1,0 +1,1 @@
+ insert into customer values('1','raj','29-Dec-1988','123');

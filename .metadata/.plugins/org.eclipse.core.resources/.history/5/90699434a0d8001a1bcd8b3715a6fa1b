@@ -1,0 +1,106 @@
+package com.tcj.model;
+
+import java.sql.Date;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class Customer {
+	@Id
+	private String cif;
+	private String name;
+	private Date dob;
+	private Date onBoardingDate;
+	private String phone;
+	private List<BankAccount> accounts;
+	
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Customer(String cif) {
+		super();
+		this.cif = cif;
+	}
+
+	public Customer(String cif, String name, Date dob, Date onBoardingDate, String phone) {
+		super();
+		this.cif = cif;
+		this.name = name;
+		this.dob = dob;
+		this.onBoardingDate = onBoardingDate;
+		this.phone = phone;
+	}
+
+	public Customer(String cif, String name, Date dob, Date onBoardingDate, String phone, List<BankAccount> accounts) {
+		super();
+		this.cif = cif;
+		this.name = name;
+		this.dob = dob;
+		this.onBoardingDate = onBoardingDate;
+		this.phone = phone;
+		this.accounts = accounts;
+	}
+
+	public String getCif() {
+		return cif;
+	}
+
+	public void setCif(String cif) {
+		this.cif = cif;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Date getDob() {
+		return dob;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	public Date getOnBoardingDate() {
+		return onBoardingDate;
+	}
+
+	public void setOnBoardingDate(Date onBoardingDate) {
+		this.onBoardingDate = onBoardingDate;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public List<BankAccount> getAccounts() {
+		return accounts;
+	}
+
+	public void setAccounts(List<BankAccount> accounts) {
+		this.accounts = accounts;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [cif=" + cif + ", name=" + name + ", dob=" + dob + ", onBoardingDate=" + onBoardingDate
+				+ ", phone=" + phone + ", accounts=" + accounts + "]";
+	}
+	
+	
+	
+	
+	
+}

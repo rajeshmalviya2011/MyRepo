@@ -1,0 +1,11 @@
+package com.tcj.dao;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.tcj.model.BankAccount;
+
+public interface AccountRepository extends CrudRepository<BankAccount,String>{
+
+	
+	
+}

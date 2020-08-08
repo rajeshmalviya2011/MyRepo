@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="register">
+		CIF:<input type="text" name="cif"><br>
+		NAME:<input type="text" name="name"><br>
+		DATE OF BIRTH:<input type="text" name="dob"><br>
+		ONBAORDING DATE:<input type="text" name="onBoardingDate"><br>
+		PHONE NUMBER:<input type="text" name="phone"><br>
+		ACCOUNT NUMBER:<input type="text" name="accNo"><br>
+		OPENING DATE:<input type="text" name="openingDate"><br>
+		BALANCE:<input type="text" name="balance"><br>
+		STATUS:<input type="text" name="status"><br>	
+		<input type="submit" value="Register">
+	</form>
+</body>
+</html>

@@ -1,0 +1,114 @@
+
+
+package com.tcj.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.boot.model.source.internal.hbm.ModelBinder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.tcj.dao.AccountRepository;
+import com.tcj.dao.CustomerRepository;
+import com.tcj.model.BankAccount;
+import com.tcj.model.Customer;
+
+@Controller
+	public class MyController {
+
+	
+		@Autowired
+		CustomerRepository customerRepository;
+		
+		@Autowired
+		AccountRepository accountRepository;
+		
+		@RequestMapping("/")
+		public String home()
+		{
+			return "home.jsp";
+		}
+		
+		@RequestMapping("/register")
+		public String register()
+		{
+			return "registration.jsp";
+		}
+		
+		@RequestMapping("/registerCustomer")
+		public String registerCustomer(Customer customer)
+		{
+			customerRepository.save(customer);
+			return "bankaccount.jsp";
+		}
+		
+		
+		
+		@RequestMapping("/registerAccount")
+		public String registerAccount(BankAccount account)
+		{
+			accountRepository.save(account);
+			return "home.jsp";
+		}
+		
+		@RequestMapping("/queryBankAccounts")
+		public ModelAndView queryBankAccounts(BankAccount account)
+		{
+			ModelAndView mv = new ModelAndView("displaybankacc.jsp");
+			Iterable<BankAccount> it = accountRepository.findAll();
+			//to do
+			List<BankAccount> bankAccounts = new ArrayList<>();
+			for(BankAccount acc:it) {
+				
+					bankAccounts.add(acc);	
+				
+			}
+			System.out.println("bankAccounts size:"+bankAccounts.size());
+			mv.addObject(bankAccounts);
+			return mv;
+		}
+		
+		@RequestMapping("/queryCustomers")
+		public String queryCustomers(BankAccount ac)
+		{
+			Iterable<Customer> custIt = customerRepository.findAll();
+			//to do
+			Iterable<BankAccount> accIt = accountRepository.findAll();
+			
+			
+			List<Customer> customers = new ArrayList<>();
+			for(Customer cust:custIt) {
+				  String cif =cust.getCif();
+				  for(BankAccount acc:accIt) {
+					  if(ac.getOpeningDate().equals(ac.getOpeningDate()) && cif.equals(acc.getCif()))
+					  {
+						  customers.add(cust);
+					  }
+				  }
+			}
+			System.out.println("customers size:"+customers.size());
+			
+			return "displaycustomers.jsp";
+		}
+		
+		
+		
+		
+		@RequestMapping("/queryBankAccountsAll")
+		public String queryBankAccountsAll(BankAccount account)
+		{
+			Iterable<BankAccount> it = accountRepository.findAll();
+			//to do
+			return "home.jsp";
+		}
+		
+		
+		
+		
+		
+		
+	}
+

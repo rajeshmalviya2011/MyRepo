@@ -1,0 +1,12 @@
+package com.tcj.dao;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.Repository;
+
+import com.tcj.model.Customer;
+
+public interface AccountRepository extends CrudRepository<Customer,String>{
+
+	
+	
+}

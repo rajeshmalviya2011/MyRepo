@@ -1,0 +1,14 @@
+package com.example.springboot.model;
+
+import java.math.BigDecimal;
+import java.sql.Date;
+
+public class BankAccount {
+	private String accNo;
+	private Date openingDate;
+	private BigDecimal balance;
+	private boolean status;
+	private String cif;
+	
+	
+}

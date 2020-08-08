@@ -1,0 +1,11 @@
+package com.tcj.dao;
+
+import org.springframework.data.repository.Repository;
+
+import com.tcj.model.Customer;
+
+public interface MyRepository extends Repository<Customer, String>{
+
+	
+	
+}

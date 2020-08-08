@@ -1,0 +1,15 @@
+package com.example.springboot.model;
+
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+
+public class Transaction {
+	private String tranId;
+	private BigDecimal amt;
+	private Timestamp time;
+	private boolean status;
+	private String currency;
+	private BankAccount bankAcccount;
+	private Customer customer;
+	
+}

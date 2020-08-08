@@ -1,0 +1,13 @@
+package com.tcj.controller;
+
+	@Controller
+	public class MyController {
+
+		@RequestMapping("/")
+		public String home()
+		{
+			return "home.jsp";
+		}
+		
+	}
+}

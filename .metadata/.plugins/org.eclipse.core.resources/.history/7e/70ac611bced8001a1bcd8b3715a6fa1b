@@ -1,0 +1,15 @@
+package com.tcj.dao;
+
+import java.sql.Date;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.tcj.model.BankAccount;
+
+public interface AccountRepository extends JpaRepository<BankAccount,String>{
+
+	  	
+	   List<BankAccount> findByCifOpeningDate(String cif,Date openingDat);
+	
+}

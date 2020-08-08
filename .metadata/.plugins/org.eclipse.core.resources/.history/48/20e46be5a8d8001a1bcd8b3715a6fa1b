@@ -1,0 +1,48 @@
+
+
+package com.tcj.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.tcj.dao.AccountRepository;
+import com.tcj.dao.CustomerRepository;
+import com.tcj.model.BankAccount;
+import com.tcj.model.Customer;
+
+@Controller
+	public class MyController {
+
+	
+		@Autowired
+		CustomerRepository customerRepository;
+		
+		@Autowired
+		AccountRepository accountRepository;
+		
+		@RequestMapping("/")
+		public String home()
+		{
+			return "registration.jsp";
+		}
+		
+		@RequestMapping("/registerCustomer")
+		public String registerCustomer(Customer customer)
+		{
+			customerRepository.save(customer);
+			return "bankaccount.jsp";
+		}
+		
+		
+		
+		@RequestMapping("/registerAccount")
+		public String registerAccount(BankAccount account)
+		{
+			accountRepository.save(account);
+			return "bankaccount.jsp";
+		}
+		
+		
+	}
+

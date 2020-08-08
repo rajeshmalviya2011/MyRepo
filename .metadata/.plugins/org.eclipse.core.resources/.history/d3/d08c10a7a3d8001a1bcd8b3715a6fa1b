@@ -1,0 +1,33 @@
+
+
+package com.tcj.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.tcj.dao.MyRepository;
+import com.tcj.model.Customer;
+
+@Controller
+	public class MyController {
+
+	
+		@Autowired
+		MyRepository myRepository;
+		
+		@RequestMapping("/")
+		public String home()
+		{
+			return "registration.jsp";
+		}
+		
+		@RequestMapping("/register")
+		public String addCustomer(Customer customer)
+		{
+			myRepository.save(customer);
+			return "home.jsp";
+		}
+		
+	}
+
