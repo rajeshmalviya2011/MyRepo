@@ -14,6 +14,8 @@ public class Transaction {
 	private Timestamp time;
 	private boolean status;
 	private String currency;
+	private String cif;
+	private String accNo;
 	
 	public Transaction() {
 		super();
@@ -94,6 +96,30 @@ public class Transaction {
 
 	public void setCurrency(String currency) {
 		this.currency = currency;
+	}
+
+
+
+	public String getCif() {
+		return cif;
+	}
+
+
+
+	public void setCif(String cif) {
+		this.cif = cif;
+	}
+
+
+
+	public String getAccNo() {
+		return accNo;
+	}
+
+
+
+	public void setAccNo(String accNo) {
+		this.accNo = accNo;
 	}
 
 
