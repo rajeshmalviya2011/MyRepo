@@ -1,0 +1,9 @@
+package com.tcj.dao;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.tcj.model.Transaction;
+
+public interface TransactionRepository extends JpaRepository<Transaction, tranID>{
+
+}

@@ -1,7 +1,7 @@
 package com.tcj.model;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,7 +11,7 @@ public class Transaction {
 	@Id
 	private String tranId;
 	private BigDecimal amt;
-	private Timestamp time;
+	private Date time;
 	private boolean status;
 	private String currency;
 	private String cif;
@@ -29,7 +29,7 @@ public class Transaction {
 		this.tranId = tranId;
 	}
 
-	public Transaction(String tranId, BigDecimal amt, Timestamp time, boolean status, String currency) {
+	public Transaction(String tranId, BigDecimal amt, Date time, boolean status, String currency) {
 		super();
 		this.tranId = tranId;
 		this.amt = amt;
@@ -64,13 +64,13 @@ public class Transaction {
 
 
 
-	public Timestamp getTime() {
+	public Date getTime() {
 		return time;
 	}
 
 
 
-	public void setTime(Timestamp time) {
+	public void setTime(Date time) {
 		this.time = time;
 	}
 

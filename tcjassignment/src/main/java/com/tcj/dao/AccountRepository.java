@@ -12,5 +12,10 @@ public interface AccountRepository extends JpaRepository<BankAccount,String>{
 
 	  @Query("from BankAccount where cif=?1 and openingDate=?2")	
 	   List<BankAccount> findByCifOpeningDate(String cif,Date openingDate);
-	
+
+
+	  @Query("from BankAccount where openingDate=?1")	
+	   List<BankAccount> findByOpeningDate(Date openingDate);
+
+	  
 }

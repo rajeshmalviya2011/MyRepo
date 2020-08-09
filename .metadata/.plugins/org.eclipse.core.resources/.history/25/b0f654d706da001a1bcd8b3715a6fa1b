@@ -1,0 +1,97 @@
+
+
+package com.tcj.controller;
+
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.tcj.dao.AccountRepository;
+import com.tcj.dao.CustomerRepository;
+import com.tcj.model.BankAccount;
+import com.tcj.model.Customer;
+import com.tcj.service.MyService;
+
+@Controller
+	public class MyController {
+
+	
+		@Autowired
+		MyService myService;
+	
+		@RequestMapping("/")
+		public String home()
+		{
+			return "home.jsp";
+		}
+		
+		@RequestMapping("/register")
+		public String register()
+		{
+			return "registration.jsp";
+		}
+		
+		@RequestMapping("/registerCustomer")
+		public String registerCustomer(Customer customer)
+		{
+			myService.registerCustomer(customer);
+			return "bankaccount.jsp";
+		}
+		
+		
+		
+		@RequestMapping("/registerAccount")
+		public String registerAccount(BankAccount account)
+		{
+			accountRepository.save(account);
+			return "home.jsp";
+		}
+		
+		@RequestMapping("/queryBankAccounts/{cif}/{openingDate}")
+		@ResponseBody
+		public List<BankAccount> queryBankAccounts(@PathVariable("cif") String cif,@PathVariable("openingDate") Date openingDate)
+		{
+			List<BankAccount> bankAccounts = accountRepository.findByCifOpeningDate(cif,openingDate);
+			System.out.println("bankAccounts size:"+bankAccounts.size());
+			return bankAccounts;
+		}
+		
+
+		@RequestMapping("/queryCustomers/{cif}/{openingDate}")
+		@ResponseBody
+		public List<Customer> queryCustomers(@PathVariable("cif") String cif,@PathVariable("openingDate") Date openingDate)
+		{
+			List<BankAccount> bankAccounts = accountRepository.findByCifOpeningDate(cif,openingDate);
+			List<Customer> customers = new ArrayList<>();
+			for(BankAccount ba : bankAccounts) {
+				Customer customer = customerRepository.findById(ba.getCif()).orElse(new Customer());
+				customers.add(customer);
+			}
+			System.out.println("customers size:"+customers.size());
+			return customers;
+		}
+		
+		@RequestMapping("/createTransaction/")
+		@ResponseBody
+		public List<Customer> createTransaction(@PathVariable("cif") String cif,@PathVariable("openingDate") Date openingDate)
+		{
+			List<BankAccount> bankAccounts = accountRepository.findByCifOpeningDate(cif,openingDate);
+			List<Customer> customers = new ArrayList<>();
+			for(BankAccount ba : bankAccounts) {
+				Customer customer = customerRepository.findById(ba.getCif()).orElse(new Customer());
+				customers.add(customer);
+			}
+			System.out.println("customers size:"+customers.size());
+			return customers;
+		}
+		
+	
+
+	}
+
