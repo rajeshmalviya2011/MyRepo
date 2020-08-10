@@ -1,10 +1,12 @@
 package com.tcj.model;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -20,7 +22,8 @@ public class Transaction {
 	private BigDecimal amt;
 	
 	@ApiModelProperty(value = "transaction time")
-	private Date time;
+	@CreationTimestamp
+	private Timestamp time;
 	
 	@ApiModelProperty(value = "transaction status")
 	private boolean status;
@@ -29,9 +32,11 @@ public class Transaction {
 	private String currency;
 	
 	@ApiModelProperty(value = "customer cif")
+	
 	private String cif;
 	
-	@ApiModelProperty(value = "customer bank account number")
+	@ApiModelProperty(value = "customer bank account number currency")
+	
 	private String accNo;
 	
 	public Transaction() {
@@ -46,7 +51,7 @@ public class Transaction {
 		this.tranId = tranId;
 	}
 
-	public Transaction(String tranId, BigDecimal amt, Date time, boolean status, String currency) {
+	public Transaction(String tranId, BigDecimal amt, Timestamp time, boolean status, String currency) {
 		super();
 		this.tranId = tranId;
 		this.amt = amt;
@@ -81,13 +86,13 @@ public class Transaction {
 
 
 
-	public Date getTime() {
+	public Timestamp getTime() {
 		return time;
 	}
 
 
 
-	public void setTime(Date time) {
+	public void setTime(Timestamp time) {
 		this.time = time;
 	}
 

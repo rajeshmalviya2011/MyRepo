@@ -19,7 +19,7 @@
 
 <a href="queryTransaction/1">5) Query all Transactions of a particular Customer</a><br>
 
-<a href="queryTransaction/1/2020-06-18">6) Query all Transactions of a particular Customer of a particular Date</a><br>
+<a href="queryTransaction/1/2020-06-18 12:12:12">6) Query all Transactions of a particular Customer of a particular Date</a><br>
 
 </body>
 </html>

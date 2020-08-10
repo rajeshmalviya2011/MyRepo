@@ -8,7 +8,6 @@ import javax.persistence.Id;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiParam;
 @Entity
 @ApiModel(value = "All details about Bank Account")
 public class BankAccount {

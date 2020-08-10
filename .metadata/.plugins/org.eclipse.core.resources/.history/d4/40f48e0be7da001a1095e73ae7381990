@@ -1,0 +1,28 @@
+package com.tcj.service;
+
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.PathVariable;
+
+import com.tcj.model.BankAccount;
+import com.tcj.model.Customer;
+import com.tcj.model.Transaction;
+
+public interface MyService {
+	public abstract void registerCustomer(Customer customer);
+	
+	public abstract void registerAccount(BankAccount account);
+
+	public abstract  List<BankAccount> queryBankAccounts(@PathVariable("cif") String cif,@PathVariable("openingDate") Date openingDate);
+
+	public abstract  List<Customer> queryCustomers(@PathVariable("openingDate") Date openingDate);
+	
+	public abstract  void createTx(Transaction tx);
+
+	public abstract  List<Transaction> queryTransaction(String cif);
+
+	public abstract  List<Transaction> queryTransaction(String cif,Timestamp time);
+}
