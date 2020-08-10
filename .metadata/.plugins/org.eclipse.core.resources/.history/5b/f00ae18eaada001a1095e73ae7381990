@@ -89,7 +89,6 @@ import io.swagger.annotations.ApiOperation;
 		}
 		
 		@RequestMapping("/createTx")
-		@ApiOperation(value="Create a Transaction")
 		public String createTx(Transaction tx)
 		{
 			myService.createTx(tx);
@@ -97,7 +96,6 @@ import io.swagger.annotations.ApiOperation;
 		}
 		
 		@RequestMapping("/queryTransaction/{cif}")
-		@ApiOperation(value = "Query all Transactions of a particular Custome")
 		@ResponseBody
 		public List<Transaction> queryTransaction(@PathVariable("cif") String cif)
 		{
@@ -107,7 +105,6 @@ import io.swagger.annotations.ApiOperation;
 		}
 		
 		@RequestMapping("/queryTransaction/{cif}/{time}")
-		@ApiOperation(value = "Query all Transactions of a particular Customer of a particular Date")
 		@ResponseBody
 		public List<Transaction> queryTransaction(@PathVariable("cif") String cif,@PathVariable("time") Date time)
 		{

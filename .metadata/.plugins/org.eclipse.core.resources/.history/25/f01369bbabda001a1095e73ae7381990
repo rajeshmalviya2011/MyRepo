@@ -7,31 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 @Entity
 @ApiModel(value = "All details abount Transaction")
 public class Transaction {
 	@Id
-	@ApiModelProperty(value = "transaction id")
 	private String tranId;
-	
-	@ApiModelProperty(value = "transaction amount")
 	private BigDecimal amt;
-	
-	@ApiModelProperty(value = "transaction time")
 	private Date time;
-	
-	@ApiModelProperty(value = "transaction status")
 	private boolean status;
-	
-	@ApiModelProperty(value = "transaction currency")
 	private String currency;
-	
-	@ApiModelProperty(value = "customer cif")
 	private String cif;
-	
-	@ApiModelProperty(value = "customer bank account number")
 	private String accNo;
 	
 	public Transaction() {

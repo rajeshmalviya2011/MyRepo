@@ -5,27 +5,13 @@ import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import io.swagger.annotations.ApiParam;
 @Entity
-@ApiModel(value = "All details about Bank Account")
 public class BankAccount {
 	@Id
-	@ApiModelProperty(value = "customer account number")
 	private String accNo;
-	
-	@ApiModelProperty(value = "customer account opening date")
 	private Date openingDate;
-	
-	@ApiModelProperty(value = "customer account balance")
 	private BigDecimal balance;
-	
-	@ApiModelProperty(value = "customer account status")
 	private boolean status;
-	
-	@ApiModelProperty(value = "customer cif")
 	private String cif;
 	
 	
